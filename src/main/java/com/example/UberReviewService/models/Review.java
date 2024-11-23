@@ -19,6 +19,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @Entity //will be used for name at the code level
 @Table(name = "BookingReview") //represent the name at DB Level
+@Inheritance(strategy =InheritanceType.SINGLE_TABLE)
 public class Review extends BaseModel{
 
     @Column(nullable = false)
