@@ -19,7 +19,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 @Entity //will be used for name at the code level
 @Table(name = "BookingReview") //represent the name at DB Level
-@Inheritance(strategy =InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy =InheritanceType.JOINED)
 public class Review extends BaseModel{
 
     @Column(nullable = false)
@@ -27,16 +27,16 @@ public class Review extends BaseModel{
 
     Double rating;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // this annotation tells spring about the format of Date Object to be stored ie. Date/Time/Timestamp
-    @CreatedDate // this annotation tells spring that only handle it for object creation
-    Date createdAt;
-
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) //this annoatation tells spring about format of Date Object to be stored
-    @LastModifiedDate //this annotation tells spring that only handle for object modification
-    Date modifiedAt;
+//    @Column(nullable = false)
+//    @Temporal(TemporalType.TIMESTAMP) // this annotation tells spring about the format of Date Object to be stored ie. Date/Time/Timestamp
+//    @CreatedDate // this annotation tells spring that only handle it for object creation
+//    Date createdAt;
+//
+//
+//    @Column(nullable = false)
+//    @Temporal(TemporalType.TIMESTAMP) //this annoatation tells spring about format of Date Object to be stored
+//    @LastModifiedDate //this annotation tells spring that only handle for object modification
+//    Date modifiedAt;
 
     @Override
     public String toString() {
