@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
 @MappedSuperclass
 @Getter
 @Setter
+@EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//this id annotation tells that the id property is a key of our table
+    @GeneratedValue(generator = "UUID")//this id annotation tells that the id property is a key of our table
     protected long Id;
 
     @Column(nullable = false)
